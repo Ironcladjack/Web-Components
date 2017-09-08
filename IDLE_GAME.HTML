@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  </script>
+  <title>Wipe in</title>
+</head>
+<body>
+<div class="click"></div>
+<div class="display">0</div>
+</body>
+</html>
+
+<style>
+.click, .display {
+height: 50px;
+width: 50px;
+background: blue;
+margin-left: 50px;
+}
+
+.click {
+  margin-top: 50px;
+}
+
+.display {
+  background: green;
+  text-align: center;
+  color: yellow;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+</style>
+<script>
+
+let clickCount = 0;
+
+$(document).ready(function() {
+  $(".click").hover(function() {
+    $(this).css("transform","translateY(5%)");
+    $(this).css("transform","scale(1.03,1.03)");
+    clickCount++;
+    if (clickCount >= 50) {
+      $(".display").css("background","purple");
+    } else if (clickCount >= 10) {
+      $(".display").css("background","red");
+    };
+    $(".display").text(clickCount);
+  }, function() {
+    $(this).css("transform","translateY(5%)");
+    $(this).css("transform","scale(1,1)");
+  }
+);
+});
+
+</script>
